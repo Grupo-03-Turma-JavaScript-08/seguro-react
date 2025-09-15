@@ -129,7 +129,7 @@ const Home = () => {
                 </section>
 
                 {/* Quem somos*/}
-                <section id="quemsomos" className="py-16 bg-white ">
+                <section id="quemsomos" className="pb-16 bg-white ">
                     <h2 className="text-3xl font-bold text-[#0D572D] mb-12 text-center">Quem somos</h2>
                     <div className="flex flex-col-reverse md:flex-row items-center gap-10" data-aos="fade-up">
 
