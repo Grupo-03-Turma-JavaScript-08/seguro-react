@@ -1,65 +1,111 @@
 import { HiOutlineX, HiOutlineLogout } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
 type SidebarProps = {
-  isOpen: boolean;
-  onClose: () => void;
+    isOpen: boolean;
+    onClose: () => void;
 };
 
 const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
-  return (
-    <div
-      className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 z-50 ${
-        isOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}
-    >
-      <div className="flex justify-between items-center p-4 border-b">
-        <h2 className="text-lg font-semibold">Menu</h2>
-        <button onClick={onClose}>
-          <HiOutlineX className="h-6 w-6 text-gray-600" />
-        </button>
-      </div>
-
-      {/* Botão de Login no topo do menu */}
-      <div className="p-4 border-b">
-        <Link
-          to="/login"
-          className="block w-full text-center px-4 py-2 bg-[#FB7813] text-white rounded hover:bg-0range-100 transition"
-          onClick={onClose}
+    return (
+        <div
+            className={`fixed top-0 right-0 h-full w-64 bg-white shadow-xl transform transition-transform duration-300 z-50 ${
+                isOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
         >
-          Login
-        </Link>
-      </div>
+            {/* Header */}
+            <div className="flex justify-between items-center p-4 border-b border-gray-200">
+                <h2 className="text-lg font-semibold text-[#072B28]">Menu</h2>
+                <button onClick={onClose}>
+                    <HiOutlineX className="h-6 w-6 text-gray-600 hover:text-[#1D7B61]" />
+                </button>
+            </div>
 
-      <nav className="flex flex-col p-4 space-y-4 font-[300] text-[20px] font-['DM_Sans']">
-        <Link to="/perfil" className="text-[#000000] hover:text-green-800">
-          Perfil do usuário
-        </Link>
-        <Link to="/admin" className="text-[#000000] hover:text-green-800">
-          Administrador
-        </Link>
-        <Link to="/paravoce" className="text-[#0D572D] hover:text-green-800">
-          Para você / Quem somos
-        </Link>
-        <Link to="/parceiro" className="text-[#000000] hover:text-green-800">
-          Seja parceiro
-        </Link>
-        <Link to="/planos" className="text-[#000000] hover:text-green-800">
-          Contatos
-        </Link>
+            {/* Botão de Login */}
+            <div className="p-4 border-b border-gray-200">
+                <Link
+                    to="/login"
+                    className="block w-full text-center px-5 py-3 rounded-lg bg-[#FB7813] text-white font-medium shadow-md hover:bg-[#e66a0d] transition"
+                    onClick={onClose}
+                >
+                    Login
+                </Link>
+            </div>
 
-        {/* Botão de logout */}
-        <Link
-          to="/login"
-          className="flex items-center gap-2 text-[#E15A1A] hover:text-red-600 transition pt-4 border-t"
-          onClick={onClose}
-        >
-          <HiOutlineLogout className="h-5 w-5" />
-          Sair
-        </Link>
-      </nav>
-    </div>
-  );
+            {/* Links simples em lista */}
+            <nav className="flex flex-col p-4 space-y-3 font-['DM_Sans'] text-[18px]">
+                <NavLink
+                    to="/perfil"
+                    onClick={onClose}
+                    className={({ isActive }) =>
+                        `px-3 py-2 rounded-md transition-colors duration-300 ${
+                            isActive ? 'text-[#1D7B61] font-semibold' : 'text-gray-700 hover:text-[#1D7B61]'
+                        }`
+                    }
+                >
+                    Perfil do usuário
+                </NavLink>
+
+                <NavLink
+                    to="/admin"
+                    onClick={onClose}
+                    className={({ isActive }) =>
+                        `px-3 py-2 rounded-md transition-colors duration-300 ${
+                            isActive ? 'text-[#1D7B61] font-semibold' : 'text-gray-700 hover:text-[#1D7B61]'
+                        }`
+                    }
+                >
+                    Administrador
+                </NavLink>
+
+                <NavLink
+                    to="/quemsomos"
+                    onClick={onClose}
+                    className={({ isActive }) =>
+                        `px-3 py-2 rounded-md transition-colors duration-300 ${
+                            isActive ? 'text-[#1D7B61] font-semibold' : 'text-gray-700 hover:text-[#1D7B61]'
+                        }`
+                    }
+                >
+                    Quem somos
+                </NavLink>
+
+                <NavLink
+                    to="/parceiro"
+                    onClick={onClose}
+                    className={({ isActive }) =>
+                        `px-3 py-2 rounded-md transition-colors duration-300 ${
+                            isActive ? 'text-[#1D7B61] font-semibold' : 'text-gray-700 hover:text-[#1D7B61]'
+                        }`
+                    }
+                >
+                    Seja parceiro
+                </NavLink>
+
+                <NavLink
+                    to="/planos"
+                    onClick={onClose}
+                    className={({ isActive }) =>
+                        `px-3 py-2 rounded-md transition-colors duration-300 ${
+                            isActive ? 'text-[#1D7B61] font-semibold' : 'text-gray-700 hover:text-[#1D7B61]'
+                        }`
+                    }
+                >
+                    Contatos
+                </NavLink>
+
+                {/* Botão de logout */}
+                <Link
+                    to="/login"
+                    onClick={onClose}
+                    className="flex items-center gap-2 text-[#E15A1A] hover:text-red-600 transition pt-4 border-t border-gray-200"
+                >
+                    <HiOutlineLogout className="h-5 w-5" />
+                    Sair
+                </Link>
+            </nav>
+        </div>
+    );
 };
 
 export default Sidebar;
