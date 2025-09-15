@@ -16,6 +16,11 @@ body {
   font-family: 'DM Sans', sans-serif;
 }
 
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+
 
 /* .logo {
   height: 6em;

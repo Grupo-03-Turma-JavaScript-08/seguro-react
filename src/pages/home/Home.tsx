@@ -13,6 +13,7 @@ const Home = () => {
     }, []);
     return (
         <>
+            {/* Carrossel */}
             <div className="pt-[20px] px-[10%]">
                 <div className="rounded-xl overflow-hidden shadow-md">
                     <Carousel
@@ -34,9 +35,9 @@ const Home = () => {
                             <div className="absolute inset-0 flex items-center px-10 bg-black/30">
                                 <div className="text-left max-w-md">
                                     <h2 className="text-white text-3xl font-bold mb-4">
-                                        Até <strong> 40% OFF </strong><br />
-                                        para você viajar protegido <br />
-                                        para em qualquer destino!
+                                        40% OFF em <br />
+                                        viagens nacionais <br />
+                                        e internacionais
                                     </h2>
                                     <button className="mt-2 bg-[#FB7813] text-white px-5 py-2 rounded hover:bg-orange-600 transition">
                                         Faça sua cotação
@@ -54,7 +55,7 @@ const Home = () => {
                             <div className="absolute inset-0 flex items-center px-10 bg-black/30">
                                 <div className="text-left max-w-md">
                                     <h2 className="text-white text-3xl font-bold mb-4">
-                                        Descubra os nossos melhores pacotes de seguros!
+                                        Descubra os melhores pacotes de viagens!
                                     </h2>
                                     <button className="mt-2 bg-[#FB7813] text-white px-5 py-2 rounded hover:bg-orange-600 transition">
                                         Ver ofertas
@@ -72,8 +73,7 @@ const Home = () => {
                             <div className="absolute inset-0 flex items-center px-10 bg-black/30">
                                 <div className="text-left max-w-md">
                                     <h2 className="text-white text-3xl font-bold mb-4">
-                                        Planeje suas viagens com tranquilidade
-                                        com a Rota segura!
+                                        Planeje agora sua próxima aventura
                                     </h2>
                                     <button className="mt-2 bg-[#FB7813] text-white px-5 py-2 rounded hover:bg-orange-600 transition">
                                         Confira destinos
@@ -129,7 +129,7 @@ const Home = () => {
                 </section>
 
                 {/* Quem somos*/}
-                <section id="quemsomos" className="py-16 bg-white ">
+                <section id="quemsomos" className="pb-16 bg-white ">
                     <h2 className="text-3xl font-bold text-[#0D572D] mb-12 text-center">Quem somos</h2>
                     <div className="flex flex-col-reverse md:flex-row items-center gap-10" data-aos="fade-up">
 
