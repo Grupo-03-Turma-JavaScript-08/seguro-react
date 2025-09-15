@@ -32,23 +32,20 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
       </div>
 
       <nav className="flex flex-col p-4 space-y-4 font-[300] text-[20px] font-['DM_Sans']">
-        <a href="#" className="text-[#000000] hover:text-green-800">
-          Quem somos
-        </a>
         <Link to="/perfil" className="text-[#000000] hover:text-green-800">
-          Perfil do usuario
+          Perfil do usuário
         </Link>
-        <Link to="/Administrador" className="text-[#000000] hover:text-green-800">
+        <Link to="/admin" className="text-[#000000] hover:text-green-800">
           Administrador
         </Link>
         <Link to="/paravoce" className="text-[#0D572D] hover:text-green-800">
-          Para você
+          Para você / Quem somos
         </Link>
         <Link to="/parceiro" className="text-[#000000] hover:text-green-800">
           Seja parceiro
         </Link>
         <Link to="/planos" className="text-[#000000] hover:text-green-800">
-          Planos
+          Contatos
         </Link>
 
         {/* Botão de logout */}

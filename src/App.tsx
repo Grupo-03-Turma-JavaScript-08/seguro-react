@@ -1,26 +1,27 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
 import Cadastro from "./pages/cadastro/Cadastro";
-import Navbar from "./components/navbar/Navbar";
+import Parceiro from "./pages/parceiro/Parceiro";
+import Navbar from "./components/navbar/Navbar.tsx";
+// import PerfilAdmin from "./perfil/PerfilAdmin";
 
 function App() {
     return (
+        <div className="pt-[20px] px-[10%]">
         <BrowserRouter>
-        <Navbar/>
+            <Navbar />
             <Routes>
-                {/* <Route path="/" element={<Home/>} /> */}
-                <Route path="/login" element={<Login />} />
-                {/*<Route path="/home" element={<Home />} />*/}
-                <Route path="/cadastro" element={<Cadastro />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
-                {/*<Route path="/seguros" element={<SeguroList />} />*/}
-                {/*<Route path="/seguros/novo" element={<SeguroForm />} />*/}
-                {/*<Route path="/categorias" element={<CategoriaList />} />*/}
-                {/*<Route path="/categorias/nova" element={<CategoriaForm />} />*/}
+                <Route path="/parceiro" element={<Parceiro />} />
+                {/*<Route path="/admin" element={<PerfilAdmin />} />*/}
             </Routes>
         </BrowserRouter>
+        </div>
     );
 }
 
 export default App;
+
