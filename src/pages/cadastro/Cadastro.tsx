@@ -40,15 +40,17 @@ export default function Cadastro() {
             });
             ToastAlerta("Usuário cadastrado com sucesso!", "sucesso");
         } catch (err: any) {
-            ToastAlerta(err.response?.data?.message || "Erro ao cadastrar usuário.", "erro");
+            ToastAlerta(
+                err.response?.data?.message || "Erro ao cadastrar usuário.",
+                "erro"
+            );
         }
     }
 
     return (
-        <div className="min-h-screen w-full bg-[#e0e5ec] flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 p-8">
-
-            <div className="w-full max-w-lg rounded-2xl shadow-[8px_8px_16px_#bec3cf,-8px_-8px_16px_#ffffff] p-8 md:p-12">
-                <form onSubmit={handleCadastro} className="w-full">
+        <div className="h-screen w-full bg-[#e0e5ec] grid md:grid-cols-2 items-center justify-center p-8 gap-1">
+            <div className="w-full max-w-lg mx-auto rounded-2xl shadow-[8px_8px_16px_#bec3cf,-8px_-8px_16px_#ffffff] p-8 md:p-12 my-auto">
+                <form onSubmit={handleCadastro} className="flex flex-col">
                     <h2 className="text-3xl font-bold text-center text-[#072B28]">
                         Criar Conta
                     </h2>
@@ -104,18 +106,22 @@ export default function Cadastro() {
 
                     <p className="text-center text-sm mt-6 text-[#333]">
                         Já tem uma conta?{" "}
-                        <Link to="/login" className="text-[#072B28] font-semibold hover:underline">
+                        <Link
+                            to="/login"
+                            className="text-[#072B28] font-semibold hover:underline"
+                        >
                             Faça Login
                         </Link>
                     </p>
                 </form>
             </div>
 
-            <div className="hidden md:block w-full md:w-[45%] rounded-2xl overflow-hidden ">
+            {/* Imagem */}
+            <div className="hidden md:flex items-center justify-center w-full max-h-[800px] rounded-2xl overflow-hidden">
                 <img
                     src={cadastroImg}
                     alt="Ilustração de pessoa se cadastrando em um site"
-                    className="w-full h-full object-cover"
+                    className="w-full h-auto object-contain"
                 />
             </div>
         </div>
