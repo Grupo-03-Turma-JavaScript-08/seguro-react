@@ -9,7 +9,7 @@ import luis from '../../assets/img/Luis.jpg'
 import dayse from '../../assets/img/dayse.jpg'
 import vitor from '../../assets/img/vitor.jpg'
 import miguel from '../../assets/img/miguel.jpg'
-import maeli from '../../assets/img/maeli.jpg'
+import maeli from '../../assets/img/maeli.jpeg'
 import leticia from '../../assets/img/leticia.jpg'
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <>
             {/* Carrossel */}
-            <div className="pt-[145px] px-[10%]">
+            <div className="pt-36 px-[10%]">
                 <div className="rounded-xl overflow-hidden shadow-md">
                     <Carousel
                         autoPlay
