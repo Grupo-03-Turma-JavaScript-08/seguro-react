@@ -8,7 +8,6 @@ import Navbar from "./components/navbar/Navbar.tsx";
 
 function App() {
     return (
-        <div className="pt-[20px] px-[10%]">
         <BrowserRouter>
             <Navbar />
             <Routes>
@@ -19,7 +18,6 @@ function App() {
                 {/*<Route path="/admin" element={<PerfilAdmin />} />*/}
             </Routes>
         </BrowserRouter>
-        </div>
     );
 }
 
