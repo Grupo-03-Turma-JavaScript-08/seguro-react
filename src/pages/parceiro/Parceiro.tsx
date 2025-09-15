@@ -34,20 +34,20 @@ export default function Parceiro() {
     }
 
     return (
-        // <div className="pt-[20px] px-[10%]">
         <div className="min-h-screen w-full bg-[#e0e5ec] flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 p-8">
 
-            <div className="hidden md:block w-full md:w-[35%] rounded-2xl overflow-hidden shadow-lg">
-                <img
-                    src={parceiroImg}
-                    alt="Banner com logos dos parceiros da Rota Segura"
-                    className="w-full h-full object-cover"
-                />
-            </div>
+            <div className="min-h-screen w-full bg-[#e0e5ec] flex flex-col md:flex-row items-start justify-center gap-8 md:gap-12 p-8 mt-20">
+                <div className="w-full md:w-[35%] rounded-2xl overflow-hidden shadow-lg flex-1">
+                    <img
+                        src={parceiroImg}
+                        alt="Banner com logos dos parceiros da Rota Segura"
+                        className="w-full h-full object-cover"
+                    />
+                </div>
 
-            <div className="w-full max-w-2xl md:w-[50%] bg-[#e0e5ec] rounded-2xl shadow-[8px_8px_16px_#bec3cf,-8px_-8px_16px_#ffffff] p-8 md:p-12">
-                <div className="w-full">
-                    <h2 className="text-3xl font-bold text-[#072B28] mb-4 text-center">
+                <div className="w-full max-w-2xl md:w-[50%] bg-[#e0e5ec] rounded-2xl shadow-[8px_8px_16px_#bec3cf,-8px_-8px_16px_#ffffff] p-8 md:p-12 flex-1">
+                    <div className="w-full">
+                        <h2 className="text-3xl font-bold text-[#072B28] mb-4 text-center">
                         Seja Nosso Parceiro
                     </h2>
                     <div className="text-[#333] mb-6 text-left leading-relaxed space-y-3 text-sm">
@@ -94,9 +94,7 @@ export default function Parceiro() {
                     </form>
                 </div>
             </div>
-
         </div>
-
-        // </div>
+     </div>
     );
 }
