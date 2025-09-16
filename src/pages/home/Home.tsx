@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <>
             {/* Carrossel */}
-            <div className="pt-36 px-[10%]">
+            <div className=" mt-32 px-[10%]">
                 <div className="rounded-xl overflow-hidden shadow-md">
                     <Carousel
                         autoPlay
