@@ -6,6 +6,7 @@ import Parceiro from "./pages/parceiro/Parceiro";
 import Navbar from "./components/navbar/Navbar.tsx";
 import {AuthProvider} from "./contexts/AuthContext.tsx";
 import {ToastContainer} from "react-toastify";
+import Footer from "./components/footer/Footer.tsx";
 // import PerfilAdmin from "./perfil/PerfilAdmin";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
                             <Route path="/parceiro" element={<Parceiro />} />
                             {/*<Route path="/admin" element={<PerfilAdmin />} />*/}
                         </Routes>
+                        <Footer/>
                 </AuthProvider>
         </div>
         </BrowserRouter>

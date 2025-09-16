@@ -9,7 +9,7 @@ import luis from '../../assets/img/Luis.jpg'
 import dayse from '../../assets/img/dayse.jpg'
 import vitor from '../../assets/img/vitor.jpg'
 import miguel from '../../assets/img/miguel.jpg'
-import maeli from '../../assets/img/maeli.jpg'
+import maeli from '../../assets/img/maeli.jpeg'
 import leticia from '../../assets/img/leticia.jpg'
 
 const Home = () => {
@@ -20,7 +20,7 @@ const Home = () => {
     return (
         <>
             {/* Carrossel */}
-            <div className="pt-[145px] px-[10%]">
+            <div className="pt-36 px-[10%]">
                 <div className="rounded-xl overflow-hidden shadow-md">
                     <Carousel
                         autoPlay
@@ -90,7 +90,7 @@ const Home = () => {
                     </Carousel>
                 </div>
 
-                <section className="py-16 bg-white ">
+                <section id="quemsomos" className="py-16 bg-white ">
                     <h2 className="text-3xl font-bold text-[#0D572D] mb-12 text-center">Quem somos?</h2>
                     <div className="flex flex-col-reverse md:flex-row items-center gap-10" data-aos="fade-up">
                         <div className="md:w-1/2">
@@ -112,12 +112,12 @@ const Home = () => {
                     </div>
                 </section>
 
-                <section className="pb-16">
+                <section id="oferecemos" className="pb-16">
                     <h2 className="text-3xl font-bold text-[#0D572D] mb-12 text-center tracking-wide">
                         O que oferecemos?
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto ">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 max-w-7xl mx-auto">
                         {[
                             {
                                 icon: <FaShieldAlt className="text-5xl text-[#4a6572] mb-4" />,
@@ -164,7 +164,7 @@ const Home = () => {
                     </div>
                 </section>
 
-                <section className="pb-16 bg-white">
+                <section id="equipe" className="pb-16 bg-white">
                     <h2 className="text-3xl font-bold text-[#0D572D] mb-12 text-center tracking-wide">
                         Nossa equipe
                     </h2>

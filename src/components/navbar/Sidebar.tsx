@@ -55,15 +55,14 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           Administrador
         </NavLink>
 
-        {/* <a href='#quemsomos'
+        <a
+          href="#quemsomos"
           onClick={onClose}
-          className={({ isActive }) =>
-            `px-3 py-2 rounded-md transition-colors duration-300 ${isActive ? 'text-[#1D7B61] font-semibold' : 'text-gray-700 hover:text-[#1D7B61]'
-            }`
-          }
+          className="px-3 py-2 rounded-md transition-colors duration-300 text-gray-700 hover:text-[#1D7B61]"
         >
           Quem somos
-        </NavLink> */}
+        </a>
+
 
         <NavLink
           to="/parceiro"
