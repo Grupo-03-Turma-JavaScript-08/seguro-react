@@ -66,9 +66,7 @@ const Home = () => {
                                 <h2 className="text-white text-3xl font-bold mb-4">
                                     Descubra os melhores pacotes de viagens!
                                 </h2>
-                                <button className="mt-2 bg-[#FB7813] text-white px-5 py-2 rounded hover:bg-orange-600 transition">
-                                    Ver ofertas
-                                </button>
+                                
                             </div>
                         </div>
                     </div>
@@ -84,9 +82,7 @@ const Home = () => {
                                 <h2 className="text-white text-3xl font-bold mb-4">
                                     Planeje agora sua próxima aventura
                                 </h2>
-                                <button className="mt-2 bg-[#FB7813] text-white px-5 py-2 rounded hover:bg-orange-600 transition">
-                                    Confira destinos
-                                </button>
+                                
                             </div>
                         </div>
                     </div>
