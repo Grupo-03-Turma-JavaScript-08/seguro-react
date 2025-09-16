@@ -36,6 +36,8 @@ export default function Cadastro() {
         if (confirmarSenha === usuario.senha && (usuario.senha?.length ?? 0) >= 8) {
             setIsLoading(true);
             try {
+                // @ts-ignore
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const { id: _id, seguros, ...usuarioSemId } = usuario;
                 await axios.post("http://localhost:4000/usuarios", usuarioSemId);
 
