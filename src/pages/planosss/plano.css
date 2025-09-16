@@ -1,0 +1,39 @@
+/* plano.css */
+
+.perspective {
+  perspective: 1200px;
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 330px;
+  transform-style: preserve-3d;
+  transition: transform 0.8s ease;
+}
+
+.group:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem; /* rounded-xl */
+  backface-visibility: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-front {
+  background-color: white;
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background-color: #FB7813;
+  color: white;
+  transform: rotateY(180deg);
+}
