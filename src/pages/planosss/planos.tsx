@@ -47,7 +47,7 @@ const PlanCards = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-[10%] py-10 mt-24">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
       {planos.map((plano, index) => (
         <div key={index} className="group perspective">
           <div className="card h-[400px]"> {/* Aumentada a altura do card */}

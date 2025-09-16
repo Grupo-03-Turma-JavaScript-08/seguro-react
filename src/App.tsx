@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import Footer from "./components/footer/Footer.tsx";
 import PerfilUsuario from "./perfil/PerfilUsuario.tsx";
 import ParaVoce from "./pages/categoria/ParaVoce.tsx";
+import PlanCards from "./pages/planosss/planos.tsx";
 // import PerfilAdmin from "./perfil/PerfilAdmin";
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
                         <Route path="/paravoce" element={<ParaVoce />} />
                         <Route path="/perfil" element={<PerfilUsuario />} />
                         {/* <Route path="/admin" element={<PerfilAdmin />} /> */}
-
+                        <Route path="/planos" element={<PlanCards />} />
 
                     </Routes>
                 </div>

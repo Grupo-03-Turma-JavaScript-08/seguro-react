@@ -22,9 +22,22 @@ const Navbar = () => {
 
         {/* Navegação Central */}
         <div className="hidden md:flex items-center space-x-6 font-[300] text-[20px] font-['DM_Sans']">
-          <a href="#quemsomos" className="text-[#0D572D] hover:text-green-800">
+
+
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive
+                ? 'text-[#FB7813] font-semibold'
+                : 'text-[#0D572D] hover:text-green-800'
+            }
+          >
+            Home
+          </NavLink>
+          {/* <div className="hidden md:block w-px h-8 bg-gray-300"></div> */}
+          {/* <a href="#quemsomos" className="text-[#0D572D] hover:text-green-800">
             Quem somos
-          </a>
+          </a> */}
 
           <div className="hidden md:block w-px h-8 bg-gray-300"></div>
 
@@ -64,20 +77,20 @@ const Navbar = () => {
           >
             Planos
           </NavLink>
-      </div>
+        </div>
 
-      {/* Separador + botão lateral */}
-      <div className="flex items-center gap-4">
-        <button
-          onClick={() => setSidebarOpen(true)}
-          className="flex items-center gap-3 px-5 py-2 rounded-lg bg-[#FB7813] hover:bg-[#e66a0d] text-white shadow-md hover:shadow-lg transition duration-300"
-        >
-          <HiMenu className="h-6 w-6 text-white" />
-          <HiUserCircle className="h-6 w-6 text-white" />
-        </button>
-      </div>
+        {/* Separador + botão lateral */}
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setSidebarOpen(true)}
+            className="flex items-center gap-3 px-5 py-2 rounded-lg bg-[#FB7813] hover:bg-[#e66a0d] text-white shadow-md hover:shadow-lg transition duration-300"
+          >
+            <HiMenu className="h-6 w-6 text-white" />
+            <HiUserCircle className="h-6 w-6 text-white" />
+          </button>
+        </div>
 
-    </nav >
+      </nav >
 
       <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
     </>
