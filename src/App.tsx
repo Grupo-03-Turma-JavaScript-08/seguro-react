@@ -4,19 +4,27 @@ import Login from "./pages/login/Login";
 import Cadastro from "./pages/cadastro/Cadastro";
 import Parceiro from "./pages/parceiro/Parceiro";
 import Navbar from "./components/navbar/Navbar.tsx";
+import {AuthProvider} from "./contexts/AuthContext.tsx";
+import {ToastContainer} from "react-toastify";
 // import PerfilAdmin from "./perfil/PerfilAdmin";
 
 function App() {
     return (
         <BrowserRouter>
-            <Navbar />
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/cadastro" element={<Cadastro />} />
-                <Route path="/parceiro" element={<Parceiro />} />
-                {/*<Route path="/admin" element={<PerfilAdmin />} />*/}
-            </Routes>
+        <Navbar />
+        <div className="pt-[145px] px-[10%]">
+                <AuthProvider>
+                    <ToastContainer />
+                        <Navbar />
+                        <Routes>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/login" element={<Login />} />
+                            <Route path="/cadastro" element={<Cadastro />} />
+                            <Route path="/parceiro" element={<Parceiro />} />
+                            {/*<Route path="/admin" element={<PerfilAdmin />} />*/}
+                        </Routes>
+                </AuthProvider>
+        </div>
         </BrowserRouter>
     );
 }
