@@ -11,8 +11,10 @@ import vitor from '../../assets/img/vitor.jpg'
 import miguel from '../../assets/img/miguel.jpg'
 import maeli from '../../assets/img/maeli.jpeg'
 import leticia from '../../assets/img/leticia.jpg'
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+    const Navigate = useNavigate();
 
     useEffect(() => {
         AOS.init({ duration: 1000 });
@@ -48,7 +50,7 @@ const Home = () => {
                                     viagens nacionais <br />
                                     e internacionais
                                 </h2>
-                                <button className="mt-2 bg-[#FB7813] text-white px-5 py-2 rounded hover:bg-orange-600 transition">
+                                <button className="mt-2 bg-[#FB7813] text-white px-5 py-2 rounded hover:bg-orange-600 transition" onClick={() => Navigate('/paravoce')}>
                                     Faça sua cotação
                                 </button>
                             </div>
