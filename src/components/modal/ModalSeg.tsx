@@ -115,6 +115,7 @@ export default function ModalSeguro({ isOpen, onClose, plano }: Props) {
             onClose();
             navigate("/");
         } catch (error) {
+            console.log(error)
             ToastAlerta("Erro ao assinar plano!", "erro");
         }
     }
@@ -216,7 +217,7 @@ export default function ModalSeguro({ isOpen, onClose, plano }: Props) {
                                     selectsEnd
                                     startDate={form.dataInicio}
                                     endDate={form.dataFim}
-                                    minDate={form.dataInicio}
+                                    minDate={form.dataInicio as Date}
                                     dateFormat="dd/MM/yyyy"
                                     locale="pt-BR"
                                     className="w-full bg-transparent focus:outline-none"

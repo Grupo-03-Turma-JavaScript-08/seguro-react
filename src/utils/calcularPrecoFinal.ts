@@ -1,4 +1,4 @@
-import type { Seguro } from "../../types/Seguro";
+import type {Seguro} from "../models/Seguro.ts";
 
 export const calcularPrecoFinal = (seguro: Seguro): number => {
     let valorTotal =

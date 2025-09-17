@@ -69,7 +69,7 @@ const Plano: React.FC<PlanoProps> = ({
                     </ul>
 
                     <button
-                        className="bg-white text-[#00332E] font-semibold  py-2 rounded-lg hover:bg-[#fa7143] hover:text-white transition"
+                        className="bg-white text-[#00332E] font-semibold p-8 py-2 rounded-lg hover:bg-[#fa7143] hover:text-white transition"
                         onClick={onContratar}
                     >
                         Contratar agora
@@ -85,7 +85,7 @@ export default function ParaVoce() {
     const [planoSelecionado, setPlanoSelecionado] = useState<string | null>(null);
 
     return (
-        <div className="min-h-screen flex flex-col items-center">
+        <div className="flex flex-col items-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
                 <Plano
                     titulo="Anual"
