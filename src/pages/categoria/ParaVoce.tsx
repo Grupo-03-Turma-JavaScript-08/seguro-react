@@ -69,7 +69,7 @@ const Plano: React.FC<PlanoProps> = ({
                     </ul>
 
                     <button
-                        className="bg-white text-[#00332E] font-semibold  py-2 rounded-lg hover:bg-[#fa7143] hover:text-white transition"
+                        className="bg-white text-[#00332E] font-semibold p-8 py-2 rounded-lg hover:bg-[#fa7143] hover:text-white transition"
                         onClick={onContratar}
                     >
                         Contratar agora

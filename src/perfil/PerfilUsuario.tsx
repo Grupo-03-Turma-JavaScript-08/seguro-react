@@ -4,6 +4,7 @@ import { atualizarUsuario, deletarUsuario } from "../services/usuarioService";
 import perfilImg from "../assets/img/avatar.png";
 import { ToastAlerta } from "../utils/ToastAlerta.ts";
 import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
+import {NavLink} from "react-router-dom";
 
 export default function PerfilUsuario() {
     const { usuario, handleLogout } = useContext(AuthContext);
@@ -166,12 +167,13 @@ export default function PerfilUsuario() {
                             >
                                 Cancelar
                             </button>
-                            <button
+                            <NavLink
+                                to="/"
                                 onClick={handleDelete}
                                 className="px-4 py-2 rounded-lg bg-red-600 text-white hover:bg-red-700"
                             >
                                 Confirmar
-                            </button>
+                            </NavLink>
                         </div>
                     </div>
                 </div>
