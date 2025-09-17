@@ -11,13 +11,13 @@ interface PlanoProps {
 }
 
 const Plano: React.FC<PlanoProps> = ({
-                                         titulo,
-                                         destaque,
-                                         beneficios,
-                                         cor,
-                                         bgImg,
-                                         onContratar,
-                                     }) => {
+    titulo,
+    destaque,
+    beneficios,
+    cor,
+    bgImg,
+    onContratar,
+}) => {
     const [aberto, setAberto] = useState(false);
 
     return (
@@ -34,9 +34,8 @@ const Plano: React.FC<PlanoProps> = ({
             }
         >
             <div
-                className={`${
-                    bgImg ? "bg-black bg-opacity-60" : cor
-                } p-6 flex flex-col justify-between h-full`}
+                className={`${bgImg ? "bg-black bg-opacity-60" : cor
+                    } p-6 flex flex-col justify-between h-full`}
             >
                 {destaque && (
                     <div className="border border-[#fa7143] text-[#fa7143] px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block mx-auto">
@@ -51,19 +50,17 @@ const Plano: React.FC<PlanoProps> = ({
                 >
                     {titulo}
                     <span
-                        className={`transform transition-transform ${
-                            aberto ? "rotate-180" : "rotate-0"
-                        }`}
+                        className={`transform transition-transform ${aberto ? "rotate-180" : "rotate-0"
+                            }`}
                     >
-            ▲
-          </span>
+                        ▲
+                    </span>
                 </button>
 
                 {/* benefícios expansíveis */}
                 <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                        aberto ? "max-h-60 mt-4" : "max-h-0"
-                    }`}
+                    className={`overflow-hidden transition-all duration-300 ${aberto ? "max-h-60 mt-4" : "max-h-0"
+                        }`}
                 >
                     <ul className="text-sm text-gray-200 space-y-2">
                         {beneficios.map((item, index) => (
@@ -72,7 +69,7 @@ const Plano: React.FC<PlanoProps> = ({
                     </ul>
 
                     <button
-                        className="mt-6 bg-white text-[#00332E] font-semibold px-4 py-2 rounded-lg hover:bg-[#fa7143] hover:text-white transition"
+                        className="bg-white text-[#00332E] font-semibold  py-2 rounded-lg hover:bg-[#fa7143] hover:text-white transition"
                         onClick={onContratar}
                     >
                         Contratar agora
@@ -88,8 +85,8 @@ export default function ParaVoce() {
     const [planoSelecionado, setPlanoSelecionado] = useState<string | null>(null);
 
     return (
-        <div className="min-h-screen flex flex-col items-center justify-center p-20 bg-[#072B28]">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="min-h-screen flex flex-col items-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
                 <Plano
                     titulo="Anual"
                     destaque="Seguro + Vantajoso"
