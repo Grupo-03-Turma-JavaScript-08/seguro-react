@@ -36,8 +36,8 @@ export default function Footer() {
         <div>
           <h3 className="text-lg font-semibold mb-4">Contatos</h3>
           <ul className="space-y-2 text-sm">
-            <li><a href="tel:+551199999999" className="hover:underline">(11) 99999-9999</a></li>
-            <li><a href="tel:+551198888888" className="hover:underline">(11) 98888-8888</a></li>
+            <li><a href="tel:+551199999999" className="hover:underline" title="🐀">(11) 3224-4000</a></li>
+            <li><a href="tel:+551198888888" className="hover:underline" title="🎮" >(11) 4002-8922</a></li>
             <li><a href="tel:+551197777777" className="hover:underline">(11) 97777-7777</a></li>
           </ul>
         </div>

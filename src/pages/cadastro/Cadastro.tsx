@@ -39,7 +39,7 @@ export default function Cadastro() {
                 // @ts-ignore
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const { id: _id, seguros, ...usuarioSemId } = usuario;
-                await axios.post("http://localhost:4000/usuarios", usuarioSemId);
+                await axios.post("https://seguro-backend-f85t.onrender.com/usuarios", usuarioSemId);
 
                 ToastAlerta("Usuário cadastrado com sucesso!", "sucesso");
                 navigate("/login");

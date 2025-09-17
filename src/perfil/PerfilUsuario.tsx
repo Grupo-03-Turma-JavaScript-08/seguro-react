@@ -41,7 +41,8 @@ export default function PerfilUsuario() {
                     id: usuario.id,
                     nome,
                     email,
-                    senha: senha === "*****" ? "" : senha, // só envia senha se for alterada
+                    senha: senha === "*****" ? "" : senha,
+                    tipo: usuario.tipo,
                 },
                 usuario.token
             );

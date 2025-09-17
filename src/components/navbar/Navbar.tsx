@@ -1,16 +1,33 @@
 import { HiMenu, HiUserCircle } from 'react-icons/hi'; // ← corrigido
 import Sidebar from './Sidebar';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../App.css'
 import logo from '../../assets/img/logo.png'
 import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarPinned, setSidebarPinned] = useState(false);
+
+  useEffect(() => {
+    if (sidebarPinned) {
+      document.body.classList.add('sidebar-pinned');
+    } else {
+      document.body.classList.remove('sidebar-pinned');
+    }
+
+    return () => {
+      document.body.classList.remove('sidebar-pinned');
+    };
+  }, [sidebarPinned]);
 
   return (
     <>
-      <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-[10%] py-4 bg-white shadow-md">
+      <nav
+        className={`navbar fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[10%] py-4 bg-white shadow-md transition-all duration-300 ${
+          sidebarPinned ? 'md:pr-64' : ''
+        }`}
+      >
         {/* Logo */}
         <NavLink to="/" className="flex items-center">
           <img
@@ -92,7 +109,17 @@ const Navbar = () => {
 
       </nav >
 
-      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Sidebar
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
+        isPinned={sidebarPinned}
+        onTogglePin={(pinned) => {
+          setSidebarPinned(pinned);
+          if (!pinned) {
+            setSidebarOpen(false);
+          }
+        }}
+      />
     </>
   );
 };

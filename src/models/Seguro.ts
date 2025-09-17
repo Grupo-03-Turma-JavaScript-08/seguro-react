@@ -9,6 +9,6 @@ export interface Seguro {
     destino: string;
     duracaoDias: number;
     preco: number;
-    categoria: Categoria;
+    categoria?: Categoria;
     usuario?: Usuario | null;
 }

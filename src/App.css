@@ -12,6 +12,24 @@ body {
   text-align: center;
 }
 
+body.sidebar-pinned {
+  padding-right: 16rem;
+}
+
+@media (max-width: 767px) {
+  body.sidebar-pinned {
+    padding-right: 0;
+  }
+
+  body.sidebar-pinned .navbar {
+    right: 0;
+  }
+}
+
+body.sidebar-pinned .navbar {
+  right: 16rem;
+}
+
 .dm-sans {
   font-family: 'DM Sans', sans-serif;
 }
