@@ -1,73 +1,98 @@
 import React, { useState } from "react";
-import Modal from "../../components/modal/ModalSeg";
+import ModalSeguro from "../../components/modal/ModalSeg"; // seu modal
 
 interface PlanoProps {
     titulo: string;
-    preco?: string;
-    descricaoPreco?: string;
     destaque?: string;
     beneficios: string[];
     cor: string;
+    bgImg?: string; // imagem de fundo opcional
     onContratar: () => void;
 }
 
 const Plano: React.FC<PlanoProps> = ({
                                          titulo,
-                                         preco,
-                                         descricaoPreco,
                                          destaque,
                                          beneficios,
                                          cor,
+                                         bgImg,
                                          onContratar,
                                      }) => {
+    const [aberto, setAberto] = useState(false);
+
     return (
         <div
-            className={`rounded-2xl p-6 w-80 min-h-[420px] flex flex-col justify-between text-center text-white transition-all duration-300 transform hover:-translate-y-3 hover:shadow-xl ${cor}`}
+            className={`rounded-2xl w-80 min-h-[420px] flex flex-col justify-between text-white shadow-lg overflow-hidden transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl`}
+            style={
+                bgImg
+                    ? {
+                        backgroundImage: `url(${bgImg})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }
+                    : {}
+            }
         >
-            {destaque && (
-                <div className="border border-[#fa7143] text-[#fa7143] px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block mx-auto">
-                    {destaque}
-                </div>
-            )}
-
-            {preco && (
-                <>
-                    <h2 className="text-3xl font-bold text-[#fa7143]">{preco}</h2>
-                    {descricaoPreco && (
-                        <p className="text-xs text-gray-300 mb-2">{descricaoPreco}</p>
-                    )}
-                </>
-            )}
-
-            <h3 className="text-xl font-semibold mb-4">{titulo}</h3>
-
-            <ul className="text-sm text-gray-200 space-y-2 mb-6">
-                {beneficios.map((item, index) => (
-                    <li key={index}>• {item}</li>
-                ))}
-            </ul>
-
-            <button
-                className="bg-white text-[#00332E] font-semibold px-4 py-2 rounded-lg hover:bg-[#fa7143] hover:text-white transition"
-                onClick={onContratar}
+            <div
+                className={`${
+                    bgImg ? "bg-black bg-opacity-60" : cor
+                } p-6 flex flex-col justify-between h-full`}
             >
-                Contratar agora
-            </button>
+                {destaque && (
+                    <div className="border border-[#fa7143] text-[#fa7143] px-3 py-1 rounded-full text-sm font-semibold mb-4 inline-block mx-auto">
+                        {destaque}
+                    </div>
+                )}
+
+                {/* título + seta */}
+                <button
+                    className="flex items-center justify-between text-xl font-semibold w-full focus:outline-none"
+                    onClick={() => setAberto(!aberto)}
+                >
+                    {titulo}
+                    <span
+                        className={`transform transition-transform ${
+                            aberto ? "rotate-180" : "rotate-0"
+                        }`}
+                    >
+            ▲
+          </span>
+                </button>
+
+                {/* benefícios expansíveis */}
+                <div
+                    className={`overflow-hidden transition-all duration-300 ${
+                        aberto ? "max-h-60 mt-4" : "max-h-0"
+                    }`}
+                >
+                    <ul className="text-sm text-gray-200 space-y-2">
+                        {beneficios.map((item, index) => (
+                            <li key={index}>• {item}</li>
+                        ))}
+                    </ul>
+
+                    <button
+                        className="mt-6 bg-white text-[#00332E] font-semibold px-4 py-2 rounded-lg hover:bg-[#fa7143] hover:text-white transition"
+                        onClick={onContratar}
+                    >
+                        Contratar agora
+                    </button>
+                </div>
+            </div>
         </div>
     );
 };
 
 export default function ParaVoce() {
     const [openModal, setOpenModal] = useState(false);
+    const [planoSelecionado, setPlanoSelecionado] = useState<string | null>(null);
 
     return (
-        <div className="min-h-screen bg-[#e0e5ec] flex flex-col items-center justify-center p-8">
+        <div className="min-h-screen flex flex-col items-center justify-center p-8 bg-[#004A46]">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <Plano
                     titulo="Anual"
-                    preco="R$ 1.900"
-                    descricaoPreco="A partir de R$ 2.100,90"
-                    destaque="Produto + Vantajoso"
+                    destaque="Seguro + Vantajoso"
                     beneficios={[
                         "Ideal para quem viaja várias vezes no ano",
                         "Cobertura completa em todas as viagens",
@@ -75,14 +100,17 @@ export default function ParaVoce() {
                         "Proteção de bagagem e imprevistos",
                         "Melhor custo-benefício",
                     ]}
+                    bgImg="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" // praia
                     cor="bg-[#00332E]"
-                    onContratar={() => setOpenModal(true)}
+                    onContratar={() => {
+                        setPlanoSelecionado("Anual");
+                        setOpenModal(true);
+                    }}
                 />
 
                 <Plano
                     titulo="Mensal"
-                    preco="R$ 200"
-                    descricaoPreco="A partir de R$ 350"
+                    destaque="Seguro + Prático"
                     beneficios={[
                         "Perfeito para viagens de curta duração",
                         "Contratação simples e rápida",
@@ -90,13 +118,17 @@ export default function ParaVoce() {
                         "Proteção contra imprevistos de saúde",
                         "Indicado para turismo e negócios",
                     ]}
+                    bgImg="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?auto=format&fit=crop&w=800&q=80" // avião
                     cor="bg-[#004A46]"
-                    onContratar={() => setOpenModal(true)}
+                    onContratar={() => {
+                        setPlanoSelecionado("Mensal");
+                        setOpenModal(true);
+                    }}
                 />
 
                 <Plano
                     titulo="Temporada"
-                    destaque="Produto + Flexível"
+                    destaque="Seguro + Flexível"
                     beneficios={[
                         "Perfeito para viagens de curta duração",
                         "Contratação simples e rápida",
@@ -104,28 +136,22 @@ export default function ParaVoce() {
                         "Proteção contra imprevistos de saúde",
                         "Indicado para turismo e negócios",
                     ]}
+                    bgImg="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?auto=format&fit=crop&w=800&q=80" // viajante com mochila
                     cor="bg-[#005A55]"
-                    onContratar={() => setOpenModal(true)}
+                    onContratar={() => {
+                        setPlanoSelecionado("Temporada");
+                        setOpenModal(true);
+                    }}
                 />
             </div>
 
-            <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-                <h2 className="text-lg font-bold mb-4">
-                    Formulário de contratação do seguro
-                </h2>
-                <ul className="space-y-2 text-sm text-gray-700 mb-6">
-                    <li>• nome:</li>
-                    <li>• descricao: string;</li>
-                    <li>• origem: string;</li>
-                    <li>• destino: string;</li>
-                    <li>• duracaoDias: number;</li>
-                    <li>• preco: number;</li>
-                    <li>• Preço total</li>
-                </ul>
-                <button className="bg-[#fa7143] text-white px-6 py-2 rounded-lg hover:bg-[#d95e2f] transition">
-                    Assinar plano
-                </button>
-            </Modal>
+            {planoSelecionado && (
+                <ModalSeguro
+                    isOpen={openModal}
+                    onClose={() => setOpenModal(false)}
+                    plano={planoSelecionado}
+                />
+            )}
         </div>
     );
 }

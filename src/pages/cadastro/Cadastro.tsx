@@ -123,16 +123,6 @@ export default function Cadastro() {
                         className="w-full px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:ring-2 focus:ring-amber-500"
                     />
 
-                    <select
-                        name="tipo"
-                        value={usuario.tipo}
-                        onChange={atualizarEstado}
-                        className="w-full px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    >
-                        <option value="CLIENTE">Cliente</option>
-                        <option value="ADMIN">Admin</option>
-                    </select>
-
                     <div className="flex justify-between gap-4 mt-6">
                         <button
                             type="reset"
