@@ -1,8 +1,26 @@
 import { useEffect } from 'react';
-import { FaHeartbeat, FaGlobeAmericas, FaCrown, FaUsers } from 'react-icons/fa';
+import { FaHeartbeat, FaGlobeAmericas, FaCrown, FaUsers, FaMapMarkedAlt, FaPlaneDeparture } from 'react-icons/fa';
 import './plano.css';
 
 const planos = [
+  {
+    nome: 'Plano Nacional',
+    icone: <FaMapMarkedAlt className="text-[#4a6572] text-5xl mb-4" />,
+    cobertura: [
+      'Cobertura em todo o Brasil',
+      'Despesas médicas até R$ 50.000',
+      'Atendimento 24h em português',
+    ],
+  },
+  {
+    nome: 'Plano Internacional',
+    icone: <FaPlaneDeparture className="text-[#4a6572] text-5xl mb-4" />,
+    cobertura: [
+      'Cobertura em mais de 150 países',
+      'Despesas médicas até R$ 150.000',
+      'Assistência com tradução',
+    ],
+  },
   {
     nome: 'Plano Básico',
     icone: <FaHeartbeat className="text-[#4a6572] text-5xl mb-4" />,
@@ -47,7 +65,7 @@ const PlanCards = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 pb-6">
       {planos.map((plano, index) => (
         <div key={index} className="group perspective">
           <div className="card h-[400px]"> {/* Aumentada a altura do card */}
