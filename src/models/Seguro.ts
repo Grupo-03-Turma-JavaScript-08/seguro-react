@@ -1,5 +1,5 @@
-import { Categoria } from "./Categoria";
-import { Usuario } from "./Usuario";
+import type { Categoria } from "./Categoria";
+import type { Usuario } from "./Usuario";
 
 export interface Seguro {
     id?: number;

@@ -1,4 +1,4 @@
-import { Seguro } from "./Seguro";
+import type { Seguro } from "./Seguro";
 
 export interface Categoria {
     id?: number;

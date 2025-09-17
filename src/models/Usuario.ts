@@ -1,4 +1,4 @@
-import {Seguro} from "./Seguro";
+import type { Seguro } from "./Seguro";
 
 export type UsuarioTipo = "ADMIN" | "CLIENTE";
 
