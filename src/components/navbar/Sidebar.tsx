@@ -67,8 +67,7 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           Perfil do usuário
         </NavLink>
 
-        {/* Link para admin - só se for admin */}
-        {/* <NavLink
+        <NavLink
           to="/admin"
           onClick={onClose}
           hidden={usuario.tipo !== 'ADMIN'}
@@ -81,9 +80,8 @@ const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
           }
         >
           Administrador
-        </NavLink> */}
+        </NavLink>
 
-        {/* Link para "Seja parceiro" - só aparece se NÃO estiver logado */}
         <NavLink
           to="/parceiro"
           onClick={onClose}
