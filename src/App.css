@@ -1,11 +1,46 @@
-#root {
+/* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
 }
 
-.logo {
+body.sidebar-pinned {
+  padding-right: 16rem;
+}
+
+@media (max-width: 767px) {
+  body.sidebar-pinned {
+    padding-right: 0;
+  }
+
+  body.sidebar-pinned .navbar {
+    right: 0;
+  }
+}
+
+body.sidebar-pinned .navbar {
+  right: 16rem;
+}
+
+.dm-sans {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+
+
+/* .logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -39,4 +74,4 @@
 
 .read-the-docs {
   color: #888;
-}
+} */
