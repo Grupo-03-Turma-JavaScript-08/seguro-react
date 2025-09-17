@@ -85,7 +85,7 @@ export default function ParaVoce() {
     const [planoSelecionado, setPlanoSelecionado] = useState<string | null>(null);
 
     return (
-        <div className="min-h-screen flex flex-col items-center">
+        <div className="flex flex-col items-center">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
                 <Plano
                     titulo="Anual"
