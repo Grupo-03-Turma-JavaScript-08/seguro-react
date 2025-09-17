@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { atualizarUsuario, deletarUsuario } from "../services/usuarioService";
 import perfilImg from "../assets/img/avatar.png";
@@ -8,9 +8,9 @@ import { FaUser, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 export default function PerfilUsuario() {
     const { usuario, handleLogout } = useContext(AuthContext);
 
-    const [nome, setNome] = useState(usuario.nome);
-    const [email, setEmail] = useState(usuario.email);
-    const [senha, setSenha] = useState("");
+    const [nome, setNome] = useState("");
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("*****"); // começa mascarado
     const [confirmarSenha, setConfirmarSenha] = useState("");
 
     const [mostrarSenha, setMostrarSenha] = useState(false);
@@ -18,10 +18,19 @@ export default function PerfilUsuario() {
 
     const [confirmarDelete, setConfirmarDelete] = useState(false);
 
+    // Atualiza os inputs quando o usuario mudar
+    useEffect(() => {
+        if (usuario) {
+            setNome(usuario.nome || "");
+            setEmail(usuario.email || "");
+            setSenha("*****"); // exibe como mascarado
+        }
+    }, [usuario]);
+
     async function handleUpdate(e: React.FormEvent) {
         e.preventDefault();
 
-        if (senha && senha !== confirmarSenha) {
+        if (senha !== "*****" && senha !== confirmarSenha) {
             ToastAlerta("As senhas não coincidem!", "erro");
             return;
         }
@@ -32,7 +41,7 @@ export default function PerfilUsuario() {
                     id: usuario.id,
                     nome,
                     email,
-                    senha,
+                    senha: senha === "*****" ? "" : senha, // só envia senha se for alterada
                 },
                 usuario.token
             );
@@ -53,15 +62,14 @@ export default function PerfilUsuario() {
     }
 
     return (
-        <div className="h-screen w-full bg-[#e0e5ec] flex flex-col items-center justify-center p-8">
-            {/* Foto + título */}
+        <div className="h-screen h-1/5 bg-[#e0e5ec] flex flex-col items-center justify-center p-8">
             <img
                 src={perfilImg}
                 alt="Foto de perfil"
                 className="w-32 h-32 rounded-full object-cover shadow-md mb-4"
             />
-            <h1 className="text-2xl font-bold text-[#072B28] mb-6">
-                Perfil de <strong>{usuario.nome}</strong>
+            <h1 className="text-2xl font-bold text-[#072B28] mb-2">
+                Perfil de <strong>{usuario?.nome}</strong>
             </h1>
 
             <form onSubmit={handleUpdate} className="flex flex-col gap-4 w-full max-w-md">
@@ -71,31 +79,30 @@ export default function PerfilUsuario() {
                     <FaUser className="text-[#0F7C72] mr-3" />
                     <input
                         type="text"
-                        placeholder="Digite seu nome"
                         value={nome}
                         onChange={(e) => setNome(e.target.value)}
                         className="w-full bg-transparent focus:outline-none"
                     />
                 </div>
 
+                {/* Email */}
                 <div className="flex items-center px-4 py-3 rounded-lg bg-[#e0e5ec]
                                 shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff]">
                     <FaUser className="text-[#0F7C72] mr-3" />
                     <input
                         type="email"
-                        placeholder="Digite seu email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full bg-transparent focus:outline-none"
                     />
                 </div>
 
+                {/* Senha */}
                 <div className="flex items-center px-4 py-3 rounded-lg bg-[#e0e5ec]
                                 shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff]">
                     <FaLock className="text-[#0F7C72] mr-3" />
                     <input
                         type={mostrarSenha ? "text" : "password"}
-                        placeholder="Digite sua nova senha"
                         value={senha}
                         onChange={(e) => setSenha(e.target.value)}
                         className="w-full bg-transparent focus:outline-none"
@@ -109,12 +116,12 @@ export default function PerfilUsuario() {
                     </button>
                 </div>
 
+                {/* Confirmar Senha */}
                 <div className="flex items-center px-4 py-3 rounded-lg bg-[#e0e5ec]
                                 shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff]">
                     <FaLock className="text-[#0F7C72] mr-3" />
                     <input
                         type={mostrarConfirmarSenha ? "text" : "password"}
-                        placeholder="Confirme sua senha"
                         value={confirmarSenha}
                         onChange={(e) => setConfirmarSenha(e.target.value)}
                         className="w-full bg-transparent focus:outline-none"
@@ -128,7 +135,6 @@ export default function PerfilUsuario() {
                     </button>
                 </div>
 
-                {/* Botões */}
                 <div className="flex justify-between gap-4 mt-6">
                     <button
                         type="button"
@@ -137,7 +143,6 @@ export default function PerfilUsuario() {
                     >
                         Deletar
                     </button>
-
                     <button
                         type="submit"
                         className="w-1/2 py-3 rounded-lg font-semibold text-white bg-amber-500 hover:bg-amber-600 shadow-md transition"
@@ -147,7 +152,6 @@ export default function PerfilUsuario() {
                 </div>
             </form>
 
-            {/* Modal de confirmação */}
             {confirmarDelete && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
                     <div className="bg-white p-6 rounded-lg shadow-lg">
