@@ -1,9 +1,10 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import {PropagateLoader} from "react-spinners";
+import { PropagateLoader } from "react-spinners";
 import { ToastAlerta } from "../../utils/ToastAlerta";
 import cadastroImg from "../../assets/img/cadastro.png";
 import axios from "axios";
+import { FaUser, FaLock } from "react-icons/fa";
 import type { Usuario } from "../../models/Usuario";
 
 export default function Cadastro() {
@@ -37,7 +38,6 @@ export default function Cadastro() {
             setIsLoading(true);
             try {
                 // @ts-ignore
-                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 const { id: _id, seguros, ...usuarioSemId } = usuario;
                 await axios.post("https://seguro-backend-f85t.onrender.com/usuarios", usuarioSemId);
 
@@ -70,9 +70,9 @@ export default function Cadastro() {
     }
 
     return (
-        <div className="h-screen w-full bg-[#e0e5ec] grid md:grid-cols-2 items-center justify-center p-8 gap-8">
+        <div className="h-screen w-full bg-[#e0e5ec] grid md:grid-cols-2 items-center justify-center p-10 gap-4 -mt-[28px]">
             {/* Formulário */}
-            <div className="w-full max-w-lg mx-auto rounded-2xl shadow-[8px_8px_16px_#bec3cf,-8px_-8px_16px_#ffffff] p-8 md:p-12 my-auto">
+            <div className="w-full max-w-lg mx-auto rounded-4xl shadow-[8px_8px_16px_#bec3cf,-8px_-8px_16px_#ffffff] p-8 md:p-16 my-auto">
                 <form onSubmit={cadastrarNovoUsuario} className="flex flex-col gap-4">
                     <h2 className="text-3xl font-bold text-center text-[#072B28]">
                         Criar Conta
@@ -81,54 +81,71 @@ export default function Cadastro() {
                         Preencha os campos para se cadastrar
                     </p>
 
-                    <input
-                        type="text"
-                        name="nome"
-                        placeholder="Digite seu nome completo"
-                        value={usuario.nome}
-                        onChange={atualizarEstado}
-                        className="w-full px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:ring-2 focus:ring-amber-500"
-                        required
-                    />
+                    {/* Nome */}
+                    <div className="flex items-center px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff]">
+                        <FaUser className="text-[#0F7C72] mr-3" />
+                        <input
+                            type="text"
+                            name="nome"
+                            placeholder="Digite seu nome completo"
+                            value={usuario.nome}
+                            onChange={atualizarEstado}
+                            className="w-full bg-transparent focus:outline-none"
+                            required
+                        />
+                    </div>
 
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Digite seu e-mail"
-                        value={usuario.email}
-                        onChange={atualizarEstado}
-                        className="w-full px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:ring-2 focus:ring-amber-500"
-                        required
-                    />
+                    {/* Email */}
+                    <div className="flex items-center px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff]">
+                        <FaUser className="text-[#0F7C72] mr-3" />
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Digite seu e-mail"
+                            value={usuario.email}
+                            onChange={atualizarEstado}
+                            className="w-full bg-transparent focus:outline-none"
+                            required
+                        />
+                    </div>
 
-                    <input
-                        type="password"
-                        name="senha"
-                        placeholder="Digite sua senha (mínimo 8 caracteres)"
-                        value={usuario.senha}
-                        onChange={atualizarEstado}
-                        minLength={8}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    />
+                    {/* Senha */}
+                    <div className="flex items-center px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff]">
+                        <FaLock className="text-[#0F7C72] mr-3" />
+                        <input
+                            type="password"
+                            name="senha"
+                            placeholder="Digite sua senha (mínimo 8 caracteres)"
+                            value={usuario.senha}
+                            onChange={atualizarEstado}
+                            minLength={8}
+                            required
+                            className="w-full bg-transparent focus:outline-none"
+                        />
+                    </div>
 
-                    <input
-                        type="password"
-                        name="confirmarSenha"
-                        placeholder="Confirme sua senha"
-                        value={confirmarSenha}
-                        onChange={handleConfirmarSenha}
-                        minLength={8}
-                        required
-                        className="w-full px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff] focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    />
+                    {/* Confirmar senha */}
+                    <div className="flex items-center px-4 py-3 rounded-lg bg-[#e0e5ec] shadow-[inset_4px_4px_8px_#bec3cf,inset_-4px_-4px_8px_#ffffff]">
+                        <FaLock className="text-[#0F7C72] mr-3" />
+                        <input
+                            type="password"
+                            name="confirmarSenha"
+                            placeholder="Confirme sua senha"
+                            value={confirmarSenha}
+                            onChange={handleConfirmarSenha}
+                            minLength={8}
+                            required
+                            className="w-full bg-transparent focus:outline-none"
+                        />
+                    </div>
 
+                    {/* Botões */}
                     <div className="flex justify-between gap-4 mt-6">
                         <button
                             type="reset"
                             onClick={retornar}
                             disabled={isLoading}
-                            className="w-1/2 py-3 rounded-lg font-semibold text-white bg-red-500 hover:bg-red-700 transition disabled:opacity-60"
+                            className="w-1/2 py-3 rounded-lg font-semibold text-white bg-amber-600 hover:bg-red-700 transition disabled:opacity-60"
                         >
                             Cancelar
                         </button>
@@ -136,7 +153,7 @@ export default function Cadastro() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-1/2 py-3 rounded-lg font-semibold text-white bg-amber-500 hover:bg-amber-600 shadow-md transition disabled:opacity-60 flex items-center justify-center gap-2"
+                            className="w-1/2 py-3 rounded-lg font-semibold text-white bg-[#072B28] hover:bg-[#0F7C72] shadow-md transition disabled:opacity-60 flex items-center justify-center gap-2"
                         >
                             {isLoading ? (
                                 <PropagateLoader color="#ffffff" size={10} />
@@ -158,6 +175,7 @@ export default function Cadastro() {
                 </form>
             </div>
 
+            {/* Imagem lateral */}
             <div className="hidden md:flex items-center justify-center w-full h-full rounded-2xl overflow-hidden">
                 <img
                     src={cadastroImg}

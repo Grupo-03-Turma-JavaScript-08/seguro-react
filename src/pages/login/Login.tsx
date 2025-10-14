@@ -42,7 +42,7 @@ export default function Login() {
     }
 
     return (
-        <div className="flex flex-col lg:flex-row min-h-[calc(100vh-145px)] lg:h-[calc(100vh-145px)] bg-[#e0e5ec] overflow-hidden">
+        <div className="flex flex-col lg:flex-row min-h-[calc(100vh-100px)] lg:h-[calc(100vh-100px)] bg-[#e0e5ec] overflow-hidden -mt-[28px]">
             {/* Coluna da imagem */}
             <div className="hidden lg:flex lg:w-1/2 h-full">
                 <img
