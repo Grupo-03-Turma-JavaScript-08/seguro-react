@@ -9,10 +9,10 @@ import {
 } from 'react-icons/fa';
 import './plano.css';
 
-const segurosPadroes = [
+const planosGerais = [
     {
         nome: 'Seguro Nacional',
-        icone: <FaMapMarkedAlt className="text-[#4a6572] text-5xl mb-4" />,
+        icone: <FaMapMarkedAlt className="text-[#4a6572] text-5xl mb-3" />,
         cobertura: [
             'Cobertura em todo o Brasil',
             'Despesas médicas até R$ 50.000',
@@ -21,19 +21,16 @@ const segurosPadroes = [
     },
     {
         nome: 'Seguro Internacional',
-        icone: <FaPlaneDeparture className="text-[#4a6572] text-5xl mb-4" />,
+        icone: <FaPlaneDeparture className="text-[#4a6572] text-5xl mb-3" />,
         cobertura: [
             'Cobertura em mais de 150 países',
             'Despesas médicas até R$ 150.000',
             'Assistência com tradução',
         ],
     },
-];
-
-const segurosPersonalizados = [
     {
-        nome: 'Plano Básico',
-        icone: <FaHeartbeat className="text-[#4a6572] text-5xl mb-4" />,
+        nome: 'Seguro Básico',
+        icone: <FaHeartbeat className="text-[#4a6572] text-5xl mb-3" />,
         cobertura: [
             'Despesas médicas até R$ 30.000',
             'Suporte via WhatsApp',
@@ -41,8 +38,8 @@ const segurosPersonalizados = [
         ],
     },
     {
-        nome: 'Plano Intermediário',
-        icone: <FaGlobeAmericas className="text-[#4a6572] text-5xl mb-4" />,
+        nome: 'Seguro Intermediário',
+        icone: <FaGlobeAmericas className="text-[#4a6572] text-5xl mb-3" />,
         cobertura: [
             'Despesas médicas até R$ 100.000',
             'Atendimento em 5 idiomas',
@@ -50,8 +47,8 @@ const segurosPersonalizados = [
         ],
     },
     {
-        nome: 'Plano Premium',
-        icone: <FaCrown className="text-[#4a6572] text-5xl mb-4" />,
+        nome: 'Seguro Premium',
+        icone: <FaCrown className="text-[#4a6572] text-5xl mb-3" />,
         cobertura: [
             'Despesas médicas até R$ 500.000',
             'Traslado VIP aeroporto',
@@ -59,8 +56,8 @@ const segurosPersonalizados = [
         ],
     },
     {
-        nome: 'Plano Família',
-        icone: <FaUsers className="text-[#4a6572] text-5xl mb-4" />,
+        nome: 'Seguro Família',
+        icone: <FaUsers className="text-[#4a6572] text-5xl mb-3" />,
         cobertura: [
             'Cobertura para até 5 membros',
             'Descontos progressivos',
@@ -69,35 +66,25 @@ const segurosPersonalizados = [
     },
 ];
 
-const CardList = ({
-                      planos,
-                      singleRow = false,
-                  }: {
-    planos: typeof segurosPadroes;
-    singleRow?: boolean;
-}) => (
-    <div
-        className={
-            singleRow
-                ? 'flex justify-center items-center gap-6 overflow-x-auto w-full pt-4 pb-8'
-                : 'flex flex-wrap justify-center gap-6 w-full pt-4 pb-8'
-        }
-    >
+const CardList = ({ planos }: { planos: typeof planosGerais }) => (
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full pt-4 pb-8 justify-items-center">
         {planos.map((plano, index) => (
             <div
                 key={index}
-                className="group perspective w-[260px] flex-shrink-0 transition-transform hover:scale-105"
+                className="group w-[320px] h-[360px] transition-transform hover:scale-105"
             >
-                <div className="card h-[370px] bg-white rounded-2xl shadow-lg">
+                <div className="card bg-white rounded-xl shadow-sm hover:shadow-md h-full transition-all duration-300">
                     {/* Frente */}
-                    <div className="card-front flex flex-col items-center justify-center p-5 bg-white rounded-2xl text-center">
+                    <div className="card-front flex flex-col items-center justify-center p-4 bg-white rounded-xl text-center h-full">
                         {plano.icone}
-                        <h3 className="text-lg font-semibold text-[#072B28] mt-1">{plano.nome}</h3>
+                        <h3 className="text-lg font-semibold text-[#072B28] mt-1">
+                            {plano.nome}
+                        </h3>
                     </div>
 
                     {/* Verso */}
-                    <div className="card-back bg-[#FB7813] text-white rounded-2xl shadow-xl p-5 flex flex-col justify-center">
-                        <h4 className="text-lg font-bold mb-2">Cobertura:</h4>
+                    <div className="card-back bg-[#FB7813] text-white rounded-xl shadow-md p-4 flex flex-col justify-center h-full">
+                        <h4 className="text-base font-bold mb-2">Cobertura:</h4>
                         <ul className="list-disc pl-4 text-sm space-y-1 text-left">
                             {plano.cobertura.map((item, i) => (
                                 <li key={i}>{item}</li>
@@ -117,19 +104,13 @@ const PlanCards = () => {
 
     return (
         <>
-            <div className="bg-[#e8edf2] w-full -mt-[100px] pb-10 flex flex-col items-center justify-center">
-                <section className="text-center w-full max-w-7xl mt-24 mb-12">
-                    <h2 className="text-2xl font-bold text-[#072B28] mb-6 border-b-4 border-[#FB7813] inline-block pb-1">
-                        Seguros Padrões
+            <div className="w-full min-h-screen -mt-[100px] pb-10 flex flex-col items-center justify-center">
+                <section className="text-center w-full max-w-7xl mt-20 px-4">
+                    <h2 className="text-3xl font-bold text-[#0D572D] my-6">
+                        Nossos Seguros
                     </h2>
-                    <CardList planos={segurosPadroes} />
-                </section>
 
-                <section className="text-center w-full max-w-7xl mt-6">
-                    <h2 className="text-2xl font-bold text-[#072B28] mb-6 border-b-4 border-[#FB7813] inline-block pb-1">
-                        Seguros Personalizados
-                    </h2>
-                    <CardList planos={segurosPersonalizados} singleRow />
+                    <CardList planos={planosGerais} />
                 </section>
             </div>
         </>

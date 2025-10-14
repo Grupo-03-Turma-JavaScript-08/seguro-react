@@ -34,7 +34,7 @@ function AppContent() {
                     <Route path="/parceiro" element={<Parceiro />} />
                     <Route path="/paravoce" element={<ParaVoce />} />
                     <Route path="/perfil" element={<PerfilUsuario />} />
-                    <Route path="/planos" element={<PlanCards />} />
+                    <Route path="/seguros" element={<PlanCards />} />
                     <Route path="/admin" element={<PerfilAdmin />} />
                 </Routes>
             </div>

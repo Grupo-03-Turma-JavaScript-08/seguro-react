@@ -155,7 +155,7 @@ const Sidebar = ({ isOpen, onClose, isPinned, onTogglePin }: SidebarProps) => {
 
         {/* Contatos - só aparece se NÃO estiver logado */}
         <NavLink
-          to="/planos"
+          to="/seguros"
           onClick={handleNavItemClick}
           hidden={isAuthenticated}
           className={({ isActive }) =>

@@ -105,13 +105,13 @@ export default function ParaVoce() {
 
     return (
         <>
-            <header className="relative flex flex-col items-center justify-center text-center text-white py-28 bg-gradient-to-b from-[#006B66] to-[#00332E]">
+            <header className="relative flex flex-col items-center justify-center text-center rounded-xl text-white py-28 bg-gradient-to-b from-[#006B66] to-[#00332E]">
                 <img
                     src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80"
                     alt="Estrada com montanhas ao fundo"
 
 
-                    className="absolute inset-0 w-full h-full object-cover opacity-30"
+                    className="absolute inset-0 w-full h-full object-cover opacity-30 rounded-xl"
                 />
                 <h1 className="relative text-4xl md:text-5xl font-bold drop-shadow-lg">
                     Escolha o plano ideal para a sua viagem!
@@ -122,7 +122,7 @@ export default function ParaVoce() {
             </header>
 
             <section className="flex flex-col items-center py-20">
-                <h2 className="text-[#00332E] text-3xl font-bold mb-12">
+                <h2 className="text-[#0D572D] text-3xl font-bold mb-12">
                     Nossas categorias de planos
                 </h2>
 
@@ -188,8 +188,8 @@ export default function ParaVoce() {
                 )}
             </section>
 
-            <section className="py-20 text-center text-[#00332E]">
-                <h3 className="text-3xl font-bold mb-8 text-[#00332E]">
+            <section className="py-20 text-center text-[#0D572D]">
+                <h3 className="text-3xl font-bold mb-8 text-[#0D572D]">
                     Quem viaja com a gente recomenda!    
                 </h3>
 
@@ -226,7 +226,7 @@ export default function ParaVoce() {
             </section>
 
 
-            <section className="text-center text-[#00332E] py-20">
+            <section className="text-center text-[#0D572D] py-20">
                 <h3 className="text-4xl font-bold mb-4 drop-shadow-lg">
                     Pronto para sua próxima aventura?
                 </h3>

@@ -47,7 +47,7 @@ export default function Parceiro() {
             {/* Card direito (formulário) */}
             <div className="w-full md:w-[50%] h-[600px] bg-[#e0e5ec] rounded-2xl  p-6 md:p-8 flex flex-col justify-between">
                 <div>
-                    <h2 className="text-3xl font-bold text-[#072B28] mb-3 text-center">
+                    <h2 className="text-3xl font-bold text-[#0D572D] mb-3 text-center">
                         Seja Nosso Parceiro
                     </h2>
                     <div className="text-[#333] mb-5 text-left leading-relaxed space-y-2 text-sm">

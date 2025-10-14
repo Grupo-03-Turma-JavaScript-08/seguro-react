@@ -79,7 +79,7 @@ const Navbar = () => {
                     <div className="hidden md:block w-px h-8 bg-gray-300"></div>
 
                     <NavLink
-                        to="/planos"
+                        to="/seguros"
                         className={({ isActive }) =>
                             isActive
                                 ? 'text-[#FB7813] font-semibold'
