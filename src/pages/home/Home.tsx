@@ -24,8 +24,6 @@ const Home = () => {
     }, []);
     return (
         <>
-            {/* Carrossel */}
-            {/* <div className=" mt-32 px-[10%]"> */}
             <div className="rounded-xl overflow-hidden shadow-md">
                 <Carousel
                     autoPlay
@@ -90,7 +88,6 @@ const Home = () => {
                     </div>
                 </Carousel>
             </div>
-
 
             <section id="quemsomos" className="py-16 bg-white ">
                 <h2 className="text-3xl font-bold text-[#0D572D] mb-12 text-center">Quem somos?</h2>
@@ -231,7 +228,6 @@ const Home = () => {
                     ))}
                 </div>
             </section>
-            {/* </div> */}
         </>
     );
 };
