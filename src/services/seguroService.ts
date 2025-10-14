@@ -2,7 +2,10 @@ import axios from "axios";
 import type { Seguro } from "../models/Seguro";
 
 const api = axios.create({
-    baseURL: "https://seguro-backend-f85t.onrender.com",
+    baseURL:
+        import.meta.env.MODE === "development"
+            ? "http://localhost:4000"
+            : "https://seguro-backend-f85t.onrender.com",
 });
 
 export const listarSeguros = async (token?: string) => {
@@ -32,7 +35,16 @@ export const atualizarSeguro = async (
 
 export const criarSeguro = async (seguro: Seguro, token?: string): Promise<Seguro> => {
     const resposta = await api.post("/seguros", seguro, {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        headers: {
+            Authorization: `${token}`,
+        },
     });
     return resposta.data;
 };
+
+export async function buscarSegurosPorUsuario(usuarioId: number, token: string) {
+    const resposta = await api.get(`/seguros/usuario/${usuarioId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+    });
+    return resposta.data;
+}
