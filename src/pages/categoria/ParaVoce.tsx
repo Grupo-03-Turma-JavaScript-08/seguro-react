@@ -190,7 +190,7 @@ export default function ParaVoce() {
 
             <section className="py-20 text-center text-[#00332E]">
                 <h3 className="text-3xl font-bold mb-8 text-[#00332E]">
-                    Quem viaja com a gente recomenda!
+                    Quem viaja com a gente recomenda!    
                 </h3>
 
                 <div className="flex flex-wrap justify-center gap-10 px-4">
