@@ -2,7 +2,7 @@ import { type ChangeEvent, type FormEvent, useContext, useEffect, useState } fro
 import { FaLock, FaUser } from "react-icons/fa";
 import loginImg from "../../assets/img/login.png";
 import type UsuarioLogin from "../../models/UsuarioLogin.ts";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthContext.tsx";
 import { PropagateLoader } from "react-spinners";
 
@@ -118,9 +118,9 @@ export default function Login() {
                     {/* Link cadastro */}
                     <p className="text-center text-sm mt-6 text-[#9499b7]">
                         Não tem uma conta?{" "}
-                        <a href="/cadastro" className="text-[#0F7C72] font-semibold">
+                        <Link to="/cadastro" className="text-[#0F7C72] font-semibold">
                             Cadastre-se
-                        </a>
+                        </Link>
                     </p>
                 </div>
             </div>
